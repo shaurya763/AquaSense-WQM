@@ -1,0 +1,140 @@
+/* =========================
+   1. Global Reset & Base
+   ========================= */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  font-family: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background-color: #f1f5f9; /* Soft background to make the white form "pop" */
+  color: #1e293b;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.5;
+}
+
+/* =========================
+   2. Navbar Styling
+   ========================= */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  background: linear-gradient(135deg, #007bff, #4ec6eb);
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.site-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  text-decoration: none;
+  color: #fff;
+}
+
+.nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+.nav a {
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 999px;
+  transition: background 0.2s ease;
+}
+
+.nav a:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.nav li.active a {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* =========================
+   3. Form Elements (Global)
+   ========================= */
+input, select, textarea {
+  font-family: inherit;
+  transition: all 0.2s ease-in-out;
+}
+
+/* Custom Scrollbar for better aesthetics */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* =========================
+   4. Utility & Animations
+   ========================= */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Apply this class to your form container in React for a smooth entrance */
+.form-fade-in {
+  animation: fadeIn 0.5s ease forwards;
+}
+
+/* =========================
+   5. Mobile Responsiveness
+   ========================= */
+@media (max-width: 768px) {
+  .nav {
+    padding: 0 1rem;
+  }
+
+  .site-title {
+    font-size: 1.25rem;
+  }
+
+  .nav ul {
+    gap: 0.5rem;
+  }
+
+  .nav a {
+    padding: 6px 10px;
+    font-size: 12px;
+  }
+  
+  /* Stack the form grid on small screens */
+  .form-grid-stack {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+}
