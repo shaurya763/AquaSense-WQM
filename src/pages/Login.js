@@ -111,7 +111,6 @@ const styles = {
     },
 };
 
-// Add keyframes for animation
 const styleSheet = document.styleSheets[0];
 const keyframes = `
 @keyframes fadeInUp {
@@ -129,7 +128,7 @@ if (styleSheet) {
     try {
         styleSheet.insertRule(keyframes, styleSheet.cssRules.length);
     } catch (e) {
-        // Animation already exists
+
     }
 }
 
@@ -147,7 +146,7 @@ function Login() {
             ...formData,
             [name]: value,
         });
-        // Clear error when user starts typing
+
         if (error) setError('');
     };
 

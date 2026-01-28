@@ -317,20 +317,20 @@ function Admin() {
 
   const updateComplaintStatus = async (id, status) => {
     try {
-      // Find the complaint to update
+
       const complaintToUpdate = complaints.find((c) => c.id === id);
       if (!complaintToUpdate) return;
 
-      // Update the complaint with new status
+
       const updatedComplaint = { ...complaintToUpdate, status };
 
-      // Call backend API to persist the status change
+
       await axios.put(
         `http://localhost:8081/api/complaints/${id}`,
         updatedComplaint
       );
 
-      // Update local state
+
       const updated = complaints.map((c) =>
         c.id === id ? { ...c, status } : c
       );

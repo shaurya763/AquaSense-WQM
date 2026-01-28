@@ -6,7 +6,7 @@ import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
 
 const styles = {
-  // Hero Section Styles
+
   heroSection: {
     width: '100%',
     minHeight: 'calc(100vh - 64px)',
@@ -88,7 +88,7 @@ const styles = {
     color: '#fff',
   },
 
-  // Stay Aware Section Styles
+
   stayAwareSection: {
     minHeight: '100vh',
     background: 'linear-gradient(135deg, #f5f9fc 0%, #e9f2fb 100%)',
@@ -147,7 +147,7 @@ const styles = {
     fontStyle: 'italic',
   },
 
-  // About Section Styles
+
   aboutSection: {
     minHeight: '100vh',
     background: '#f8fbff',
@@ -229,7 +229,7 @@ const styles = {
     transition: 'all 0.3s ease',
   },
 
-  // Back to Top Button
+
   backToTopButton: {
     position: 'fixed',
     bottom: '40px',
@@ -285,10 +285,10 @@ function Home() {
   useEffect(() => {
     setShow(true);
 
-    // Smooth scroll behavior
+
     document.documentElement.style.scrollBehavior = 'smooth';
 
-    // Scroll event listener for back to top button
+
     const handleScroll = () => {
       if (window.scrollY > 300) {
         setShowBackToTop(true);

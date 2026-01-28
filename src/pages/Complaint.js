@@ -135,18 +135,18 @@ function Complaint() {
   const [isSuccess, setIsSuccess] = useState(false);
   const [emailError, setEmailError] = useState('');
 
-  // ✅ UPDATED HANDLE CHANGE
+
   const handleChange = (e) => {
     const { name, value } = e.target;
 
-    // Phone number: only digits, max 10
+
     if (name === 'phoneNumber') {
       if (!/^\d*$/.test(value) || value.length > 10) {
         return;
       }
     }
 
-    // Email validation
+
     if (name === 'emailAddress') {
       const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
       if (value && !emailRegex.test(value)) {
@@ -169,7 +169,13 @@ function Complaint() {
       return;
     }
 
-    // Validate email format if provided
+    // Validate phone number is exactly 10 digits
+    if (!formData.phoneNumber || formData.phoneNumber.length !== 10) {
+      setIsSuccess(false);
+      setMessage('Phone number must be exactly 10 digits.');
+      return;
+    }
+
     if (formData.emailAddress) {
       const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
       if (!emailRegex.test(formData.emailAddress)) {

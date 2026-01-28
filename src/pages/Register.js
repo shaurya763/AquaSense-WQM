@@ -68,14 +68,14 @@ function Register() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // Basic form validation
+
         if (!formData.name || !formData.email || !formData.password) {
             setFormError('Please fill out all fields.');
             return;
         }
-        // Handle form submission
+
         console.log(formData);
-        // Reset form and clear error message
+
         setFormData({
             name: '',
             email: '',

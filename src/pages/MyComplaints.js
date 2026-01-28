@@ -12,7 +12,6 @@ import {
     Tooltip,
 } from 'chart.js';
 
-// Register Chart.js components
 ChartJS.register(
     CategoryScale,
     LinearScale,
@@ -258,7 +257,7 @@ function MyComplaints() {
         }
     };
 
-    // Calculate statistics
+
     const getComplaintsByType = () => {
         const types = {};
         complaints.forEach(complaint => {
@@ -288,7 +287,7 @@ function MyComplaints() {
     const complaintsByZone = getComplaintsByZone();
     const complaintsByStatus = getComplaintsByStatus();
 
-    // Chart data
+
     const pieChartData = {
         labels: Object.keys(complaintsByType),
         datasets: [
@@ -296,10 +295,10 @@ function MyComplaints() {
                 label: 'Complaints by Type',
                 data: Object.values(complaintsByType),
                 backgroundColor: [
-                    'rgba(59, 130, 246, 0.8)',   // Blue
-                    'rgba(139, 92, 246, 0.8)',   // Purple
-                    'rgba(20, 184, 166, 0.8)',   // Teal
-                    'rgba(249, 115, 22, 0.8)',   // Orange (backup)
+                    'rgba(59, 130, 246, 0.8)',
+                    'rgba(139, 92, 246, 0.8)',
+                    'rgba(20, 184, 166, 0.8)',
+                    'rgba(249, 115, 22, 0.8)',
                 ],
                 borderColor: [
                     'rgba(59, 130, 246, 1)',
@@ -312,12 +311,12 @@ function MyComplaints() {
         ],
     };
 
-    // Map colors to zones
+
     const zoneColorMap = {
-        'North': { bg: 'rgba(34, 197, 94, 0.8)', border: 'rgba(34, 197, 94, 1)' },    // Green
-        'South': { bg: 'rgba(249, 115, 22, 0.8)', border: 'rgba(249, 115, 22, 1)' }, // Orange
-        'East': { bg: 'rgba(168, 85, 247, 0.8)', border: 'rgba(168, 85, 247, 1)' },  // Purple
-        'West': { bg: 'rgba(236, 72, 153, 0.8)', border: 'rgba(236, 72, 153, 1)' },  // Pink
+        'North': { bg: 'rgba(34, 197, 94, 0.8)', border: 'rgba(34, 197, 94, 1)' },
+        'South': { bg: 'rgba(249, 115, 22, 0.8)', border: 'rgba(249, 115, 22, 1)' },
+        'East': { bg: 'rgba(168, 85, 247, 0.8)', border: 'rgba(168, 85, 247, 1)' },
+        'West': { bg: 'rgba(236, 72, 153, 0.8)', border: 'rgba(236, 72, 153, 1)' },
     };
 
     const barChartData = {
@@ -348,9 +347,9 @@ function MyComplaints() {
                     complaintsByStatus.rejected,
                 ],
                 backgroundColor: [
-                    'rgba(255, 193, 7, 0.8)',   // Yellow for Pending
-                    'rgba(40, 167, 69, 0.8)',   // Green for Accepted
-                    'rgba(220, 53, 69, 0.8)',   // Red for Rejected
+                    'rgba(255, 193, 7, 0.8)',
+                    'rgba(40, 167, 69, 0.8)',
+                    'rgba(220, 53, 69, 0.8)',
                 ],
                 borderColor: [
                     'rgba(255, 193, 7, 1)',

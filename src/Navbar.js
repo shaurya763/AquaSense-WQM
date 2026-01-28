@@ -58,10 +58,10 @@ export default function Navbar() {
   const location = useLocation();
 
   const scrollToSection = (sectionId) => {
-    // If not on home page, navigate to home first
+
     if (location.pathname !== '/') {
       navigate('/');
-      // Wait for navigation to complete, then scroll
+
       setTimeout(() => {
         const element = document.getElementById(sectionId);
         if (element) {
@@ -69,7 +69,7 @@ export default function Navbar() {
         }
       }, 100);
     } else {
-      // Already on home page, just scroll
+
       const element = document.getElementById(sectionId);
       if (element) {
         element.scrollIntoView({ behavior: 'smooth', block: 'start' });
