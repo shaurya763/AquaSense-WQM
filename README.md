@@ -75,7 +75,7 @@ We applied systems thinking to analyze the intricate interactions involved in wa
 - **MySQL Connector/JDBC:** A driver that enables Java applications to communicate with MySQL databases.
 
 ## Final Outcomes:
-![Home Page](https://github.com/Cap26803/Water-Quality-Monitoring/assets/106472393/6e0dae06-e3c9-4064-a6dd-f67f1a902004)
+![Home Page](https://drive.google.com/file/d/1JG6sJMzSvkQ4M-zRJTXdAk_-78qjXbEy/view?usp=sharing)
 ![Complaint Submission](https://github.com/Cap26803/Water-Quality-Monitoring/assets/106472393/649147a5-e65c-48b6-b8e3-684ffafc8113)
 ![Admin Dashboard](https://github.com/Cap26803/Water-Quality-Monitoring/assets/106472393/3f036abf-6c88-4eae-8b10-7c5eb5c8c8f6)
 
