@@ -112,6 +112,13 @@ const styles = {
     border: '1px solid #9ae6b4',
     fontWeight: '500',
   },
+
+  fieldError: {
+    color: '#e53e3e',
+    fontSize: '13px',
+    marginTop: '6px',
+    fontWeight: '500',
+  },
 };
 
 function Complaint() {
@@ -126,6 +133,7 @@ function Complaint() {
 
   const [message, setMessage] = useState('');
   const [isSuccess, setIsSuccess] = useState(false);
+  const [emailError, setEmailError] = useState('');
 
   // ✅ UPDATED HANDLE CHANGE
   const handleChange = (e) => {
@@ -135,6 +143,16 @@ function Complaint() {
     if (name === 'phoneNumber') {
       if (!/^\d*$/.test(value) || value.length > 10) {
         return;
+      }
+    }
+
+    // Email validation
+    if (name === 'emailAddress') {
+      const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+      if (value && !emailRegex.test(value)) {
+        setEmailError('Please enter a valid email address');
+      } else {
+        setEmailError('');
       }
     }
 
@@ -151,6 +169,17 @@ function Complaint() {
       return;
     }
 
+    // Validate email format if provided
+    if (formData.emailAddress) {
+      const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+      if (!emailRegex.test(formData.emailAddress)) {
+        setIsSuccess(false);
+        setMessage('Please enter a valid email address.');
+        setEmailError('Invalid email format');
+        return;
+      }
+    }
+
     try {
       await axios.post('http://localhost:8081/api/complaints/add', formData);
 
@@ -165,6 +194,7 @@ function Complaint() {
 
       setIsSuccess(true);
       setMessage('Complaint submitted successfully.');
+      setEmailError('');
     } catch (error) {
       setIsSuccess(false);
       setMessage('Error submitting complaint. Please try again.');
@@ -322,16 +352,20 @@ function Complaint() {
                 placeholder="Enter your valid email address"
                 value={formData.emailAddress}
                 onChange={handleChange}
-                style={styles.input}
+                style={{
+                  ...styles.input,
+                  borderColor: emailError ? '#fc8181' : '#b2ebf2',
+                }}
                 onFocus={(e) => {
-                  e.currentTarget.style.borderColor = '#00acc1';
+                  e.currentTarget.style.borderColor = emailError ? '#fc8181' : '#00acc1';
                   e.currentTarget.style.boxShadow = '0 0 0 3px rgba(0, 172, 193, 0.15)';
                 }}
                 onBlur={(e) => {
-                  e.currentTarget.style.borderColor = '#b2ebf2';
+                  e.currentTarget.style.borderColor = emailError ? '#fc8181' : '#b2ebf2';
                   e.currentTarget.style.boxShadow = 'none';
                 }}
               />
+              {emailError && <div style={styles.fieldError}>{emailError}</div>}
             </div>
 
             {message && (

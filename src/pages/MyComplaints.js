@@ -182,6 +182,30 @@ const styles = {
         fontWeight: '500',
     },
 
+    statusBadge: {
+        fontSize: '13px',
+        fontWeight: '600',
+        padding: '4px 12px',
+        borderRadius: '12px',
+        textTransform: 'uppercase',
+        letterSpacing: '0.5px',
+    },
+
+    statusPending: {
+        background: '#fff3cd',
+        color: '#856404',
+    },
+
+    statusAccepted: {
+        background: '#d4edda',
+        color: '#155724',
+    },
+
+    statusRejected: {
+        background: '#f8d7da',
+        color: '#721c24',
+    },
+
     loading: {
         textAlign: 'center',
         fontSize: '20px',
@@ -251,8 +275,18 @@ function MyComplaints() {
         return zones;
     };
 
+    const getComplaintsByStatus = () => {
+        const statuses = { pending: 0, accepted: 0, rejected: 0 };
+        complaints.forEach(complaint => {
+            const status = complaint.status || 'pending';
+            statuses[status] = (statuses[status] || 0) + 1;
+        });
+        return statuses;
+    };
+
     const complaintsByType = getComplaintsByType();
     const complaintsByZone = getComplaintsByZone();
+    const complaintsByStatus = getComplaintsByStatus();
 
     // Chart data
     const pieChartData = {
@@ -303,6 +337,31 @@ function MyComplaints() {
         ],
     };
 
+    const statusBarChartData = {
+        labels: ['Pending', 'Accepted', 'Rejected'],
+        datasets: [
+            {
+                label: 'Complaints by Status',
+                data: [
+                    complaintsByStatus.pending,
+                    complaintsByStatus.accepted,
+                    complaintsByStatus.rejected,
+                ],
+                backgroundColor: [
+                    'rgba(255, 193, 7, 0.8)',   // Yellow for Pending
+                    'rgba(40, 167, 69, 0.8)',   // Green for Accepted
+                    'rgba(220, 53, 69, 0.8)',   // Red for Rejected
+                ],
+                borderColor: [
+                    'rgba(255, 193, 7, 1)',
+                    'rgba(40, 167, 69, 1)',
+                    'rgba(220, 53, 69, 1)',
+                ],
+                borderWidth: 2,
+            },
+        ],
+    };
+
     const chartOptions = {
         responsive: true,
         maintainAspectRatio: true,
@@ -318,6 +377,13 @@ function MyComplaints() {
                 },
             },
         },
+    };
+
+    const getStatusBadgeStyle = (status) => {
+        const normalizedStatus = status || 'pending';
+        if (normalizedStatus === 'accepted') return { ...styles.statusBadge, ...styles.statusAccepted };
+        if (normalizedStatus === 'rejected') return { ...styles.statusBadge, ...styles.statusRejected };
+        return { ...styles.statusBadge, ...styles.statusPending };
     };
 
     if (loading) {
@@ -368,13 +434,21 @@ function MyComplaints() {
                 {/* Charts */}
                 {complaints.length > 0 && (
                     <div style={styles.chartsGrid}>
+                        {/* Left: Pie Chart */}
                         <div style={styles.chartCard}>
                             <h3 style={styles.chartTitle}>Complaints by Type</h3>
                             <Pie data={pieChartData} options={chartOptions} />
                         </div>
+
+                        {/* Right: Zone and Status Charts Stacked Vertically */}
                         <div style={styles.chartCard}>
                             <h3 style={styles.chartTitle}>Complaints by Zone</h3>
                             <Bar data={barChartData} options={chartOptions} />
+
+                            <div style={{ marginTop: '48px', paddingTop: '32px', borderTop: '2px solid #e0f7fa' }}>
+                                <h3 style={styles.chartTitle}>Complaints by Status</h3>
+                                <Bar data={statusBarChartData} options={chartOptions} />
+                            </div>
                         </div>
                     </div>
                 )}
@@ -403,7 +477,12 @@ function MyComplaints() {
                                     }}
                                 >
                                     <div style={styles.complaintHeader}>
-                                        <span style={styles.complaintId}>ID: #{complaint.id}</span>
+                                        <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
+                                            <span style={styles.complaintId}>ID: #{complaint.id}</span>
+                                            <span style={getStatusBadgeStyle(complaint.status)}>
+                                                {complaint.status || 'pending'}
+                                            </span>
+                                        </div>
                                         <span style={styles.complaintType}>{complaint.complaintType}</span>
                                     </div>
 
