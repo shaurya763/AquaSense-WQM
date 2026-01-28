@@ -4,6 +4,7 @@ import Admin from "./pages/Admin"
 import Complaint from "./pages/Complaint"
 import Home from "./pages/Home"
 import Login from "./pages/Login"
+import MyComplaints from "./pages/MyComplaints"
 import Register from "./pages/Register"
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
       <Routes>
         {/* 🔥 FULL WIDTH PAGE */}
         <Route path="/" element={<Home />} />
+        <Route path="/my-complaints" element={<MyComplaints />} />
 
         {/* 📦 NORMAL PAGES */}
         <Route

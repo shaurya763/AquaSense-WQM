@@ -122,6 +122,23 @@ export default function Navbar() {
 
         <li>
           <Link
+            to="/my-complaints"
+            style={styles.link}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.background = "rgba(255,255,255,0.25)";
+              e.currentTarget.style.boxShadow = "inset 0 0 0 1px rgba(255,255,255,0.4)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.background = "transparent";
+              e.currentTarget.style.boxShadow = "none";
+            }}
+          >
+            <b>My Complaints</b>
+          </Link>
+        </li>
+
+        <li>
+          <Link
             to="/Login"
             style={styles.link}
             onMouseEnter={(e) => {
