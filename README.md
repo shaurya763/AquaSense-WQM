@@ -43,7 +43,8 @@ MySQL Workbench
 
 <img width="1088" height="509" alt="image" src="https://github.com/user-attachments/assets/4070609a-37ba-47f8-a4a8-bf37b26c946d" />
 
-<img width="1088" height="517" alt="image" src="https://github.com/user-attachments/assets/662a17ba-4b67-48b7-a53f-fbbb0e887863" />
+<img width="1919" height="914" alt="image" src="https://github.com/user-attachments/assets/3aa70d81-8a92-4821-ab8b-096a43d46ae2" />
+
 
 <img width="1088" height="515" alt="image" src="https://github.com/user-attachments/assets/a4200b92-83f3-4c69-b3fb-f5d1f00fb4a6" />
 
