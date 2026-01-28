@@ -1,105 +1,54 @@
-# Water Quality Monitoring (WQM)
+##Problem Statement
 
-## Problem Statement
-This project aims to develop a Complaint Management System to streamline the process of handling citizen grievances for a city administration. Through a user-friendly web application interface, citizens can submit complaints regarding issues such as water leakage and contamination.
+Currently, water quality issues are often reported through manual processes, which leads to delays, lack of transparency, and poor tracking. Many citizens are unaware of water safety standards and the environmental impact of pollution.
+The absence of a unified platform for water quality complaints and awareness results in:
+•	Delayed response to contamination issues
+•	Lack of public awareness
+•	Inefficient data management
+Aqua Sense addresses these problems by providing an online system that enables awareness dissemination and structured complaint handling.
 
-## Objectives
-- To develop a platform for reporting water quality complaints.
-- To implement a system to manage and visualize submissions.
+##Objectives:
+•	To create awareness about water quality and pollution
+•	To provide a platform for raising water-related complaints
+•	To support SDG-6 initiatives
+•	To maintain structured data for water issues
 
-## SDG 6 Alignment
+##Technologies Used
+--Frontend
 
-The WQM platform supports Sustainable Development Goal 6 (SDG 6) by providing tools and resources to improve water quality and promote sustainable water monitoring practices. Through our complaint management system, we address water quality issues promptly, contributing to the goal of ensuring the availability and sustainable management of water and sanitation for all.
+ReactJS
+JavaScript (ES6)
+Axios
+HTML5
+CSS3
+Bootstrap
 
-### SDG Goal 6:
+--Backend
 
-![SDG 6](https://github.com/Cap26803/Water-Quality-Monitoring/assets/106472393/532d36d6-e216-4515-bd12-5fa18fcb29fe)
+Java
+Spring Boot
+RESTful APIs
 
-### Ensure availability and sustainable management of water and sanitation for all.
-- **Target 6.1:** By 2030, achieve universal and equitable access to safe and affordable drinking water for all.
-- **Indicator 6.1.1:** Proportion of population using safely managed drinking water services.
+--Database
 
-## System Thinking
-
-We applied systems thinking to analyze the intricate interactions involved in water quality monitoring. Breaking down the problem into smaller components enabled us to pinpoint crucial areas where intervention and enhancement were needed.
-
-### Causal Map
-![Causal Map](https://github.com/Cap26803/Water-Quality-Monitoring/assets/105357505/e5f1effa-380c-4cf7-a807-807c8b146a3c)
-
-### Behaviour Over Time (BoT)
-![Behaviour Over Time](https://github.com/Cap26803/Water-Quality-Monitoring/assets/105357505/c91e77ab-b31e-4870-943e-bb53ef092753)
-
-### Feedback Loops
-![Feedback Loop 1](https://github.com/Cap26803/Water-Quality-Monitoring/assets/105357505/d294e465-0678-4b65-8937-41e76b930d11)
-![Feedback Loop 2](https://github.com/Cap26803/Water-Quality-Monitoring/assets/105357505/5f5c27a0-337f-49f3-9b46-0fa20e7765b7)
-
-## Implementation Details
-
-### Implementation Platform
-
-- **Frontend:** 
-  - **React.js** is used for building the user interface of the platform. It provides a component-based architecture that enhances the development of interactive and dynamic web applications.
-
-- **Backend:** 
-  - **Spring Boot** is used for creating the backend services. It simplifies the development of production-ready applications with its embedded server and wide range of libraries.
-
-- **Database:** 
-  - **MySQL** is utilized for managing and storing data. It is a reliable relational database management system that ensures data integrity and supports complex queries.
-
-### Programming Languages
-
-- **JavaScript:** 
-  - Used for developing the frontend application with React.js.
-
-- **Java:** 
-  - Employed for developing the backend services using Spring Boot.
-
-- **SQL:** 
-  - Used for querying and managing data in MySQL.
-
-### Packages and Libraries
-
-#### Frontend
-
-- **React.js:** A JavaScript library for building user interfaces.
-- **Axios:** A promise-based HTTP client for making HTTP requests.
-- **@fortawesome/fontawesome-free:** A library for incorporating Font Awesome icons.
-- **Chart.js:** A library for creating responsive charts and graphs.
-- **react-chartjs-2:** A React wrapper for Chart.js to create charts in React components.
-
-#### Backend
-
-- **Spring Boot:** A framework for building Java-based web applications with built-in support for embedded servers and RESTful services.
-- **Spring Data JPA:** Provides APIs and implementations for data access.
-- **Spring Web:** Provides features to build web applications, including RESTful applications using Spring MVC.
-- **MySQL Connector/JDBC:** A driver that enables Java applications to communicate with MySQL databases.
-
-## Final Outcomes:
-![Home Page](https://drive.google.com/file/d/1JG6sJMzSvkQ4M-zRJTXdAk_-78qjXbEy/view?usp=sharing)
-![Complaint Submission](https://github.com/Cap26803/Water-Quality-Monitoring/assets/106472393/649147a5-e65c-48b6-b8e3-684ffafc8113)
-![Admin Dashboard](https://github.com/Cap26803/Water-Quality-Monitoring/assets/106472393/3f036abf-6c88-4eae-8b10-7c5eb5c8c8f6)
+MySQL
+Tools & Platforms
+Git & GitHub
+VS Code
+Eclipse IDE
+MySQL Workbench
 
 
-## Contribution Guidelines
+<img width="1088" height="518" alt="image" src="https://github.com/user-attachments/assets/635f07d3-85da-4fe3-8e46-05a8eb003836" />
 
-We welcome contributions from the community. If you have suggestions or bug reports, please create an issue or submit a pull request.
+<img width="1088" height="509" alt="image" src="https://github.com/user-attachments/assets/4070609a-37ba-47f8-a4a8-bf37b26c946d" />
 
-### Steps to Contribute
+<img width="1088" height="517" alt="image" src="https://github.com/user-attachments/assets/662a17ba-4b67-48b7-a53f-fbbb0e887863" />
 
-1\. Fork the repository
+<img width="1088" height="515" alt="image" src="https://github.com/user-attachments/assets/a4200b92-83f3-4c69-b3fb-f5d1f00fb4a6" />
 
-2\. Create a new branch (`git checkout -b feature-branch`)
+<img width="971" height="541" alt="image" src="https://github.com/user-attachments/assets/2dfcb165-3f6c-43bf-885b-55c56278e7ce" />
 
-3\. Make your changes
+<img width="603" height="578" alt="image" src="https://github.com/user-attachments/assets/5a75167c-f048-4704-90c3-11bfb317b780" />
 
-4\. Commit your changes (`git commit -m 'Add some feature'`)
-
-5\. Push to the branch (`git push origin feature-branch`)
-
-6\. Open a pull request
-
-Thank you for supporting the Water Quality Monitoring platform and our mission to promote clean water and sustainable development!
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+<img width="1088" height="1081" alt="image" src="https://github.com/user-attachments/assets/1f197c67-0e86-4c8a-af52-8d45797f822e" />
