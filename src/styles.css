@@ -7,10 +7,11 @@
   padding: 0;
 }
 
-html, body {
+html,
+body {
   height: 100%;
   font-family: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  background-color: #f1f5f9; /* Soft background to make the white form "pop" */
+  background-color: #e0f7fa;
   color: #1e293b;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -69,7 +70,9 @@ html, body {
 /* =========================
    3. Form Elements (Global)
    ========================= */
-input, select, textarea {
+input,
+select,
+textarea {
   font-family: inherit;
   transition: all 0.2s ease-in-out;
 }
@@ -102,8 +105,15 @@ input, select, textarea {
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Apply this class to your form container in React for a smooth entrance */
@@ -131,7 +141,7 @@ input, select, textarea {
     padding: 6px 10px;
     font-size: 12px;
   }
-  
+
   /* Stack the form grid on small screens */
   .form-grid-stack {
     display: flex !important;

@@ -1,12 +1,10 @@
 import { Route, Routes } from "react-router-dom"
 import Navbar from "./Navbar"
-import About from "./pages/About"
 import Admin from "./pages/Admin"
 import Complaint from "./pages/Complaint"
 import Home from "./pages/Home"
 import Login from "./pages/Login"
 import Register from "./pages/Register"
-import StayAware from "./pages/StayAware"
 
 function App() {
   return (
@@ -23,15 +21,6 @@ function App() {
           element={
             <div className="container">
               <Complaint />
-            </div>
-          }
-        />
-
-        <Route
-          path="/StayAware"
-          element={
-            <div className="container">
-              <StayAware />
             </div>
           }
         />
@@ -59,15 +48,6 @@ function App() {
           element={
             <div className="container">
               <Admin />
-            </div>
-          }
-        />
-
-        <Route
-          path="/about"
-          element={
-            <div className="container">
-              <About />
             </div>
           }
         />

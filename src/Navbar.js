@@ -1,17 +1,22 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 
 const styles = {
   nav: {
+    position: "sticky",
+    top: 0,
+    zIndex: 1000,
     height: "64px",
     display: "flex",
     alignItems: "center",
     justifyContent: "space-between",
     padding: "0 32px",
 
-    background: "linear-gradient(135deg, #4ec6eb, #007bff)",
+    background: "rgba(37, 194, 214, 0.95)",
+    backdropFilter: "blur(10px)",
+    WebkitBackdropFilter: "blur(10px)",
     color: "#fff",
 
-    boxShadow: "0 4px 12px rgba(0,0,0,0.15)",
+    boxShadow: "0 4px 12px rgba(0, 172, 193, 0.3)",
   },
 
   logo: {
@@ -39,6 +44,7 @@ const styles = {
     padding: "8px 14px",
     borderRadius: "999px",
     transition: "all 0.25s ease",
+    cursor: "pointer",
   },
 
   activeLink: {
@@ -48,6 +54,29 @@ const styles = {
 };
 
 export default function Navbar() {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const scrollToSection = (sectionId) => {
+    // If not on home page, navigate to home first
+    if (location.pathname !== '/') {
+      navigate('/');
+      // Wait for navigation to complete, then scroll
+      setTimeout(() => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 100);
+    } else {
+      // Already on home page, just scroll
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+  };
+
   return (
     <nav style={styles.nav}>
       {/* Logo */}
@@ -58,51 +87,54 @@ export default function Navbar() {
       {/* Navigation Links */}
       <ul style={styles.linkList}>
         <li>
-          <NavLink
-            to="/Complaint"
-            style={({ isActive }) => ({
-              ...styles.link,
-              ...(isActive ? styles.activeLink : {}),
-            })}
-          >
-            <b>Raise Complaint</b>
-          </NavLink>
-        </li>
-
-        <li>
-          <NavLink
-            to="/StayAware"
-            style={({ isActive }) => ({
-              ...styles.link,
-              ...(isActive ? styles.activeLink : {}),
-            })}
+          <a
+            onClick={() => scrollToSection('stay-aware')}
+            style={styles.link}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.background = "rgba(255,255,255,0.25)";
+              e.currentTarget.style.boxShadow = "inset 0 0 0 1px rgba(255,255,255,0.4)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.background = "transparent";
+              e.currentTarget.style.boxShadow = "none";
+            }}
           >
             <b>Stay Aware</b>
-          </NavLink>
+          </a>
         </li>
 
         <li>
-          <NavLink
-            to="/About"
-            style={({ isActive }) => ({
-              ...styles.link,
-              ...(isActive ? styles.activeLink : {}),
-            })}
+          <a
+            onClick={() => scrollToSection('about')}
+            style={styles.link}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.background = "rgba(255,255,255,0.25)";
+              e.currentTarget.style.boxShadow = "inset 0 0 0 1px rgba(255,255,255,0.4)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.background = "transparent";
+              e.currentTarget.style.boxShadow = "none";
+            }}
           >
             <b>About</b>
-          </NavLink>
+          </a>
         </li>
 
         <li>
-          <NavLink
+          <Link
             to="/Login"
-            style={({ isActive }) => ({
-              ...styles.link,
-              ...(isActive ? styles.activeLink : {}),
-            })}
+            style={styles.link}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.background = "rgba(255,255,255,0.25)";
+              e.currentTarget.style.boxShadow = "inset 0 0 0 1px rgba(255,255,255,0.4)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.background = "transparent";
+              e.currentTarget.style.boxShadow = "none";
+            }}
           >
             <b>Admin</b>
-          </NavLink>
+          </Link>
         </li>
       </ul>
     </nav>
